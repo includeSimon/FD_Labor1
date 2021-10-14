@@ -84,12 +84,23 @@ public class Main {
         return  abNoten;
     }
 
+    /***
+     * <h1>Aufgabe 1.4</h1>
+     * Es werdet die max Methode aus Collections verwendet
+     * @param Noten das Noten Array
+     * @return Integer die grosste Note aus den abgerundete Noten Array
+     */
+    static Integer maxAbNote(int[] Noten){
+        throwException(Noten);return Collections.max(abgerundeteNoten(Noten));
+    }
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
         durchschnittWert(Noten);
         abgerundeteNoten(Noten);
         System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
+        System.out.println(maxAbNote(Noten).toString());
     }
 
 }
