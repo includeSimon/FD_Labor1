@@ -34,9 +34,29 @@ public class Main {
         System.out.println(nANoten.toString());
     }
 
+    /***
+     *<h1>Aufgabe 1.2</h1>
+     * In eine for Schleife werden wir die Noten addieren
+     * @param Noten das Noten Array
+     */
+    static void durchschnittWert(int[] Noten){
+        throwException(Noten);
+
+        for (int note : Noten)
+            if (note < 0 || note > 100)
+                throw new IllegalArgumentException();
+
+        double summe = 0;
+        for (int note : Noten)
+            summe += note;
+
+        System.out.println("Das Durchschnittswert ist " + String.format("%.2f", summe / Noten.length)); //2 Dezimale
+    }
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
+        durchschnittWert(Noten);
     }
 
 }
