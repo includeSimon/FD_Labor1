@@ -111,6 +111,24 @@ public class Main {
      */
      static Integer minNote(int[] Noten) {throwException(Noten);return Arrays.stream(Noten).min().getAsInt();}
 
+    /***
+     * <h1>Aufgabe 2.3</h1>
+     * Wir sorten den Array dann so dass wir alle Noten ohne die erste (kleinste) summieren konnen
+     * @param Noten das Noten Array
+     * @return Integer die maximale Summe der n-1 Noten
+     */
+    static Integer maxSumme(int[] Noten) {
+        throwException(Noten);
+        int[] sortedNoten = Noten;
+        Arrays.sort(sortedNoten);
+
+        int sum = 0;
+        for (int i = sortedNoten.length - 1; i > 0; i--)
+            sum += sortedNoten[i];
+
+        return sum;
+    }
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
@@ -120,6 +138,7 @@ public class Main {
         System.out.println(maxAbNote(Noten).toString());
         System.out.println("Die hochste Note ist: " + maxNote(Noten));
         System.out.println("Die kleinste Note ist: " + minNote(Noten));
+        System.out.println("Die maximum Summe der n-1 Zahlen ist " + maxSumme(Noten));
     }
 
 }
