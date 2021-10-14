@@ -98,10 +98,18 @@ public class Main {
      * <h1>Aufgabe 2.1</h1>
      * Max Methode aus Array stream
      * Vielleicht gibt es einfacher Lösungen
-     * @param Noten
+     * @param Noten das Noten Array
      * @return Integer die max Note
      */
     static Integer maxNote(int[] Noten) {throwException(Noten);return Arrays.stream(Noten).max().getAsInt();}
+
+    /***
+     * <h1>Aufgabe 2.2</h1>
+     * Min Methode aus Array stream
+     * @param Noten das Noten Array
+     * @return Integer die kleinste Note aus die Noten Array
+     */
+     static Integer minNote(int[] Noten) {throwException(Noten);return Arrays.stream(Noten).min().getAsInt();}
 
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
@@ -111,6 +119,7 @@ public class Main {
         System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
         System.out.println(maxAbNote(Noten).toString());
         System.out.println("Die hochste Note ist: " + maxNote(Noten));
+        System.out.println("Die kleinste Note ist: " + minNote(Noten));
     }
 
 }
