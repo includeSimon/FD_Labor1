@@ -53,10 +53,43 @@ public class Main {
         System.out.println("Das Durchschnittswert ist " + String.format("%.2f", summe / Noten.length)); //2 Dezimale
     }
 
+    /***
+     * <h1>Aufgabe 1.3</h1>
+     * Es werdet matematisch gelöst, durch substraktion mit 5, so dass wir die letzte Ziffern finden.
+     * @param Noten das Noten Array
+     * @return ArrayList<Integer> die abgerundete Noten aus den Noten Array
+     */
+    static ArrayList<Integer> abgerundeteNoten(int[] Noten){
+        throwException(Noten);
+
+        ArrayList<Integer> abNoten = new ArrayList<Integer>();
+
+        for (int note : Noten) {
+            int result = note % 10 - 5;     // die letzte Ziffern - 5
+
+            if (result < 0) {
+                if (result == -2)   // die letzte Ziffer ist 3
+                    abNoten.add(note + 2);
+                if (result == -1)   // die letzte Ziffer ist 4
+                    abNoten.add(note + 1);
+            }
+
+            if (result > 0) {
+                if (result == 3)   // die letzte Ziffer ist 8
+                    abNoten.add(note + 2);
+                if (result == 4)   // die letzte Ziffer ist 9
+                    abNoten.add(note + 1);
+            }
+        }
+        return  abNoten;
+    }
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
         durchschnittWert(Noten);
+        abgerundeteNoten(Noten);
+        System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
     }
 
 }
