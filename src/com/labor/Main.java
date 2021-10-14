@@ -129,6 +129,24 @@ public class Main {
         return sum;
     }
 
+    /***
+     * <h1>Aufgabe 2.4</h1>
+     * Es ist die Gleiche wie Aufgabe 2.3, nur die for Schleife ist verschieden
+     * @param Noten
+     * @return Integer die kleinste Summe der n-1 Noten
+     */
+    static Integer minSumme(int[] Noten) {
+        throwException(Noten);
+        int[] sortedNoten = Noten;
+        Arrays.sort(sortedNoten);
+
+        int sum = 0;
+        for (int i = 0; i < sortedNoten.length-1; i++)
+            sum += sortedNoten[i];
+
+        return sum;
+    }
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
@@ -139,6 +157,7 @@ public class Main {
         System.out.println("Die hochste Note ist: " + maxNote(Noten));
         System.out.println("Die kleinste Note ist: " + minNote(Noten));
         System.out.println("Die maximum Summe der n-1 Zahlen ist " + maxSumme(Noten));
+        System.out.println("Die maximum Summe der n-1 Zahlen ist " + minSumme(Noten));
     }
 
 }
