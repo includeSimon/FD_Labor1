@@ -94,6 +94,15 @@ public class Main {
         throwException(Noten);return Collections.max(abgerundeteNoten(Noten));
     }
 
+    /***
+     * <h1>Aufgabe 2.1</h1>
+     * Max Methode aus Array stream
+     * Vielleicht gibt es einfacher Lösungen
+     * @param Noten
+     * @return Integer die max Note
+     */
+    static Integer maxNote(int[] Noten) {throwException(Noten);return Arrays.stream(Noten).max().getAsInt();}
+
     public static void main(String args[]) {
         int[] Noten = {4, 8, 3, 10, 17, 60};
         nichtAusreichendeNoten(Noten);
@@ -101,6 +110,7 @@ public class Main {
         abgerundeteNoten(Noten);
         System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
         System.out.println(maxAbNote(Noten).toString());
+        System.out.println("Die hochste Note ist: " + maxNote(Noten));
     }
 
 }
