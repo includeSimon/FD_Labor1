@@ -392,24 +392,49 @@ public class Main {
     }
 
     public static void main(String args[]) {
-//        int[] Noten = {4, 8, 3, 10, 17, 60};
-//        nichtAusreichendeNoten(Noten);
-//        durchschnittWert(Noten);
-//        abgerundeteNoten(Noten);
-//        System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
-//        System.out.println(maxAbNote(Noten).toString());
-//        System.out.println("Die hochste Note ist: " + maxNote(Noten));
-//        System.out.println("Die kleinste Note ist: " + minNote(Noten));
-//        System.out.println("Die maximum Summe der n-1 Zahlen ist " + maxSumme(Noten));
-//        System.out.println("Die maximum Summe der n-1 Zahlen ist " + minSumme(Noten));
+        int[] Noten = {4, 8, 3, 10, 17, 60};
+        int[] Array1 = {3,4,2,1};
+        int[] Array2 = {1,1,1,1};
+        int[] Tastatur = {15,20,10,35};
+        int[] USB = {20,15,40,15};
+        int[] Preise = {15,45,20};
+        int[] Array3;
+        int[] tastaturen = {40,50,60};
+        int[] laufwerke = {8,12};
 
-        int[] Array1 = {40,60};
-        int[] Array2 = {8,12};
-//        int[] Array3 = ArrayDivision(Array1, 3);
+        nichtAusreichendeNoten(Noten);
+        durchschnittWert(Noten);
+        abgerundeteNoten(Noten);
+        System.out.println("Die abgerundete Noten sind: " + abgerundeteNoten(Noten).toString());
+        System.out.println(maxAbNote(Noten).toString());
+        System.out.println("Die hochste Note ist: " + maxNote(Noten));
+        System.out.println("Die kleinste Note ist: " + minNote(Noten));
+        System.out.println("Die maximum Summe der n-1 Zahlen ist " + maxSumme(Noten));
+        System.out.println("Die maximum Summe der n-1 Zahlen ist " + minSumme(Noten));
 
-//        for (int zahl : Array3)
-//            System.out.println(zahl);
+        Array3 = ArraySumme(Array1, Array2);
+        for (int zahl : Array3)
+            System.out.println(zahl);
 
-        System.out.println(maxGeldbetrag(Array1,Array2,60));
+        System.out.println();
+        Array3 = ArrayDifferenz(Array1, Array2);
+        for (int zahl : Array3)
+            System.out.println(zahl);
+
+        System.out.println();
+        Array3 = ArrayMultiplikation(Array1, 2);
+        for (int zahl : Array3)
+            System.out.println(zahl);
+
+        System.out.println();
+        Array3 = ArrayDivision(Array1, 2);
+        for (int zahl : Array3)
+            System.out.println(zahl);
+
+        System.out.println();
+        System.out.println(billigTastatur(Tastatur));
+        System.out.println(teuersteObject(Tastatur,USB));
+        System.out.println(teuerUndVerfugbarUSB(Preise,30));
+        System.out.println(maxGeldbetrag(tastaturen,laufwerke,60));
     }
 }
