@@ -1,5 +1,4 @@
 package com.labor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -56,30 +55,28 @@ public class Main {
 
     /***
      * <h1>Aufgabe 1.3</h1>
-     * Es werdet matematisch gelöst, durch substraktion mit 5, so dass wir die letzte Ziffern finden.
+     * Es werdet erst mal prufen, ob jede note groser oder gleich als 38 ist, dann finden wir dem grosste
+     * Multipel von 5 und es wird gepruft, ob die Differenz zwischen dem Multipel
      * @param Noten das Noten Array
      * @return ArrayList<Integer> die abgerundete Noten aus den Noten Array
      */
     static ArrayList<Integer> abgerundeteNoten(int[] Noten) {
-        throwException(Noten);
 
         ArrayList<Integer> abNoten = new ArrayList<Integer>();
 
         for (int note : Noten) {
-            int result = note % 10 - 5;     // die letzte Ziffern - 5
+            if (note < 38)
+                abNoten.add(note);
+            else {
+                //wir finden dem nachsten Multipel von 5
+                int multipel = 0;
 
-            if (result < 0) {
-                if (result == -2)   // die letzte Ziffer ist 3
-                    abNoten.add(note + 2);
-                if (result == -1)   // die letzte Ziffer ist 4
-                    abNoten.add(note + 1);
-            }
+                while (multipel < note)
+                    multipel += 5;
 
-            if (result > 0) {
-                if (result == 3)   // die letzte Ziffer ist 8
-                    abNoten.add(note + 2);
-                if (result == 4)   // die letzte Ziffer ist 9
-                    abNoten.add(note + 1);
+                if (multipel - note < 3)
+                    abNoten.add(multipel);
+                else abNoten.add(note);
             }
         }
         return abNoten;
@@ -392,7 +389,7 @@ public class Main {
     }
 
     public static void main(String args[]) {
-        int[] Noten = {4, 8, 3, 10, 17, 60};
+        int[] Noten = {4, 8, 3, 10, 17, 60, 64};
         int[] Array1 = {3,4,2,1};
         int[] Array2 = {1,1,1,1};
         int[] Tastatur = {15,20,10,35};
